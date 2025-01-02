@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Temple Trips This Year</title>
+</head>
+<body>
+
+<h1>Temple Trips This Year</h1>
+
+<p id="count">0</p>
+
+<button onclick="addTrip()">Add Trip</button>
+<button onclick="resetCounter()">Reset Counter</button>
+
+<script>
+  // Load the saved count from local storage
+  var count = localStorage.getItem('templeTrips') || 0; 
+  document.getElementById('count').innerHTML = count;
+
+  function addTrip() {
+    count++;
+    document.getElementById('count').innerHTML = count;
+    localStorage.setItem('templeTrips', count); 
+  }
+
+  function resetCounter() {
+    count = 0;
+    document.getElementById('count').innerHTML = count;
+    localStorage.removeItem('templeTrips'); 
+  }
+</script>
+
+</body>
+</html>
